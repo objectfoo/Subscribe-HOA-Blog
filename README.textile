@@ -1,0 +1,14 @@
+h1. Plugin features
+
+# <strike>admin section</strike>
+** <strike>API key ( global )</strike>
+** <strike>List Name</strike>
+** <strike>UUID Prefix</strike>
+** <strike>Send Announcements</strike>
+# <strike>add a shortcode to print a sub/unsub form for dreamhost announce-list</strike>
+# respond to feedback queries by printing virtual pages for
+** Already Subscribed
+** Not Subscribed
+** Invalid Email Address
+** Confirmation URL
+# <strike>send message to dreamhost announce-list server when a post is published for the first time</strike>

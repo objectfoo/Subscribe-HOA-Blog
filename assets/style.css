@@ -1,0 +1,11 @@
+#subscribe-hoa {  border:1px solid #aaa; margin:24px 0;}
+#subscribe-hoa form { display:block; margin:24px; }
+#subscribe-hoa input { margin-bottom:0; }
+#subscribe-hoa input[type="text"] {width:250px}
+#subscribe-hoa .hd  { text-align:center;  border-bottom:1px solid #aaa;}
+#subscribe-hoa .hd p {font-size:14px; font-family:arial, sans-serif; margin-bottom:0; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 1em;}
+#subscribe-hoa table {margin:0;padding:0;border:0;}
+#subscribe-hoa table tr,#subscribe-hoa table td { margin:0;padding:0;border:0; }
+#subscribe-hoa table td {text-align:center;}
+#subscribe-hoa table td.left {text-align:left;}
+#subscribe-hoa label {color:#333;}
