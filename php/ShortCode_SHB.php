@@ -8,9 +8,8 @@ class ShortCode_SHB {
 	}
 	
 	function init() {
-		add_shortcode( 'announcelist',			array( $this, 'replace_shortcode') );
-		
-		add_action( 'init',						array( $this, 'enqueue_assets' ) );
+		add_shortcode( 'announcelist',  array( $this, 'replace_shortcode') );
+		add_action( 'init',             array( $this, 'enqueue_assets' ) );
 		
 		// can't dequeue stylesheets cause they don't print in the footer :(
 		// add_action( 'the_post',					array( $this, 'post_has_shortcode' ) );

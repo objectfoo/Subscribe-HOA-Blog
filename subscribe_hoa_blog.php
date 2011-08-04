@@ -22,7 +22,7 @@ define( 'SHB_ANNOUNCE_KEY', 'ANNOUNCE_KEY' );
 // string defines
 define( 'SHB_DOMAIN_KEY', 'DOMAIN_NAME' );
 define( 'SHB_DOMAIN_NAME', 'pcmnw2.com' );
-define( 'SHB_MAIL_TYPE', 'text' );			// text or html
+define( 'SHB_MAIL_TYPE', 'text' );          // text or html
 
 // Administration
 if( !class_exists( 'Admin_SHB' ) )
