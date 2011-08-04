@@ -2,7 +2,6 @@
 class ShortCode_SHB {
 	static $need_assets;
 	
-	
 	function __construct($admin) {
 		$this->admin = $admin;
 	}
