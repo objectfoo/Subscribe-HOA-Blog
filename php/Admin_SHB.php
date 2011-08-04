@@ -78,13 +78,13 @@ class Admin_SHB {
     // validate
     function validate( $opts ) {
         $re_api_key = '/^[\w\-]{16}$/';
-        
+
         $valid = array();
-        $valid[SHB_API_KEY]          = '';
+        $valid[SHB_API_KEY]         = '';
         $valid[SHB_LIST_KEY]        = '';
         $valid[SHB_UUID_KEY]        = '';
         $valid[SHB_ANNOUNCE_KEY]    = 0;
-        
+
         // API_KEY
         $opts[SHB_API_KEY] = trim( $opts[SHB_API_KEY] );
         if( preg_match( $re_api_key, $opts[SHB_API_KEY] ) ) {
@@ -93,7 +93,7 @@ class Admin_SHB {
         else if( $opts[SHB_API_KEY] != '' ) {
             add_settings_error( SHB_OPTIONS_KEY, 'myerr', 'Dreamhost API key: not 16 char alphanumeric value' );
         }
-        
+
         // LIST_KEY
         $opts[SHB_LIST_KEY] = trim( $opts[SHB_LIST_KEY] );
         if( preg_match( '/^[\w\-]+$/', $opts[SHB_LIST_KEY] ) ) {

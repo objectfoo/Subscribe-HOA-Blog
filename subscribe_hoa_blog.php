@@ -13,16 +13,16 @@ define( 'SHB_FILE', __FILE__ );
 define( 'SHB_DIR', plugin_dir_url( SHB_FILE ) );
 
 // wp stored options
-define( 'SHB_OPTIONS_KEY', 'SHB_OPTIONS' );
-define( 'SHB_API_KEY', 'API_KEY' );
-define( 'SHB_LIST_KEY', 'LIST_KEY' );
-define( 'SHB_UUID_KEY', 'UUID_KEY' );
+define( 'SHB_OPTIONS_KEY',  'SHB_OPTIONS' );
+define( 'SHB_API_KEY',      'API_KEY' );
+define( 'SHB_LIST_KEY',     'LIST_KEY' );
+define( 'SHB_UUID_KEY',     'UUID_KEY' );
 define( 'SHB_ANNOUNCE_KEY', 'ANNOUNCE_KEY' );
 
 // string defines
-define( 'SHB_DOMAIN_KEY', 'DOMAIN_NAME' );
-define( 'SHB_DOMAIN_NAME', 'pcmnw2.com' );
-define( 'SHB_MAIL_TYPE', 'text' );          // text or html
+define( 'SHB_DOMAIN_KEY',   'DOMAIN_NAME' );
+define( 'SHB_DOMAIN_NAME',  'pcmnw2.com' );
+define( 'SHB_MAIL_TYPE',    'text' );          // text or html
 
 // Administration
 if( !class_exists( 'Admin_SHB' ) )

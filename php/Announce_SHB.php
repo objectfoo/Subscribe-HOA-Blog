@@ -15,10 +15,10 @@ class Announce_SHB {
 			'publish' == $new_status &&
 			'publish' != $old_status )
 		{
-			$opts       = $this->admin->getOptions();
-			$uuid       = uniqid( $opts[SHB_UUID_KEY] );
-			$subject    = get_bloginfo( 'name' ). ': ' . $this_post->post_title;
-			$subject    = urlencode( $subject );
+			$opts     = $this->admin->getOptions();
+			$uuid     = uniqid( $opts[SHB_UUID_KEY] );
+			$subject  = get_bloginfo( 'name' ). ': ' . $this_post->post_title;
+			$subject  = urlencode( $subject );
 			
 			if( SHB_MAIL_TYPE == 'text' ) {
 				$link = "Log in to read more: ";
