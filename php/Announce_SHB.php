@@ -10,9 +10,11 @@ class Announce_SHB {
 
     function announce_post( $new_status, $old_status, $this_post ) {
         $opts = $this->admin->getOptions();
-        if( $opts[SHB_ANNOUNCE_KEY] && 
-            'publish' == $new_status &&
-            'publish' != $old_status )
+
+        if( $this_post->post_type == 'post' &&                  // is post
+            $opts[SHB_ANNOUNCE_KEY] &&                          // announce on
+            'publish' == $new_status &&                         // new publish
+            'publish' != $old_status )                          // !old publish
         {
             $opts     = $this->admin->getOptions();
             $uuid     = uniqid( $opts[SHB_UUID_KEY] );
@@ -56,7 +58,7 @@ class Announce_SHB {
                 $uuid,                                  // uuid
                 'announcement_list-post_announcement',  // cmd
                 $opts[SHB_LIST_KEY],                    // list name
-                SHB_DOMAIN,                             // domain
+                SHB_DOMAIN_NAME,                        // domain
                 $subject,                               // email subject 
                 $message,                               // message
                 SHB_MAIL_TYPE                           // email type html ||text
