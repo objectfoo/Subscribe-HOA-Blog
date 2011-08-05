@@ -8,7 +8,7 @@
  * License: GPLv2
 */
 
-global $admin_shb, $shortCode_shb, $feedback_shb;
+global $admin_shb, $shortCode_shb;
 
 // paths
 define( 'SHB_FILE', __FILE__ );
