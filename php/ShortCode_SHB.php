@@ -36,7 +36,7 @@ class ShortCode_SHB {
     
     // enqueue scripts and style to be included on the page
     function enqueue_assets() {
-        wp_enqueue_style ( 'subscribe-hoa', SHB_DIR.'assets/style.css', false, 1.1, 'all' );
+        wp_enqueue_style ( 'subscribe-hoa', SHB_DIR.'assets/style.css', false, 1.2, 'all' );
     }
     
     // not used
