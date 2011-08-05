@@ -46,7 +46,7 @@ if( class_exists( 'ShortCode_SHB' ) ) {
 
 // Feedback
 if( !class_exists( 'FeedbackPages_SHB'))
-    require_once dirname( SHB_FILE ) . '/php/FeedbackPages_SHB.php';
+    // require_once dirname( SHB_FILE ) . '/php/FeedbackPages_SHB.php';
 
 if( class_exists( 'FeedbackPages_SHB' ) ) {
     $feedback_shb = new FeedbackPages_SHB( $admin_shb );
@@ -66,7 +66,8 @@ register_activation_hook( SHB_FILE, 'install_plugin_shb' );
 function install_plugin_shb() {
 	global $admin_shb, $feedback_shb;
     $admin_shb->install();
-    $feedback_shb->init();
+    // $feedback_shb->init();
+
     // $feedback_shb->add_rules();
     // flush_rewrite_rules();
 }
@@ -74,7 +75,7 @@ function install_plugin_shb() {
 // Deactivation hook
 register_deactivation_hook( SHB_FILE, 'deactivate_plugin');
 function deactivate_plugin() {
-    flush_rewrite_rules();
+    // flush_rewrite_rules();
 }
 
 
