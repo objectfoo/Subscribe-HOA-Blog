@@ -63,11 +63,8 @@ class Announce_SHB {
                 $message,                               // message
                 SHB_MAIL_TYPE                           // email type html ||text
             );
-            // print_r($uri);
-            // die();
+
             $dh_response = wp_remote_get( $uri, array( 'sslverify' => false ) );
-            // print_r($dh_response);
-            // die();
         }
         
     }

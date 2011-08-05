@@ -24,7 +24,7 @@ define( 'SHB_ANNOUNCE_KEY', 'ANNOUNCE_KEY' );
 // string defines
 define( 'SHB_DOMAIN_KEY',   'DOMAIN_NAME' );
 define( 'SHB_DOMAIN_NAME',  'pcmnw2.com' );
-define( 'SHB_MAIL_TYPE',    'text' );          // text or html
+define( 'SHB_MAIL_TYPE',    'text' );
 
 // Administration
 if( !class_exists( 'Admin_SHB' ) )
@@ -32,7 +32,6 @@ if( !class_exists( 'Admin_SHB' ) )
 
 if( class_exists( 'Admin_SHB' ) ) {
     $admin_shb = new Admin_SHB();
-//    $admin_shb->init();
 }
 
 // Shortcode
@@ -41,7 +40,6 @@ if( !class_exists( 'ShortCode_SHB' ) )
 
 if( class_exists( 'ShortCode_SHB' ) ) {
     $shortCode_shb = new ShortCode_SHB( $admin_shb );
-//    $shortCode_shb->init();
 }
 
 // Announcement
@@ -58,10 +56,5 @@ function install_plugin_shb() {
     global $admin_shb;
     $admin_shb->install();
 }
-
-// Deactivation hook
-register_deactivation_hook( SHB_FILE, 'deactivate_plugin');
-function deactivate_plugin() { }
-
 
 ?>
