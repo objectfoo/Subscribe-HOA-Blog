@@ -1,13 +1,14 @@
-.subscribe-hoa	{ border:1px solid #aaa; margin:24px 0; }
+.subscribe-hoa {border:1px solid #aaa; margin:24px 0;}
+#content .please-log-in {margin:18px 24px;}
 
 .subscribe-hoa form,
-.subscribe-hoa .bd	{ display:block; margin:24px 24px 12px 24px; }
+.subscribe-hoa .bd {display:block; margin:24px 24px 12px 24px;}
 
-.subscribe-hoa input { margin-bottom:0; }
+.subscribe-hoa input {margin-bottom:0;}
 
 .subscribe-hoa input[type="text"] {width:250px}
 
-.subscribe-hoa .hd  { margin-top:12px; }
+.subscribe-hoa .hd  {margin-top:12px;}
 
 #content .subscribe-hoa .hd p {
 	font-size:14px;
@@ -22,7 +23,7 @@
 #content .subscribe-hoa table {margin:0;padding:0;border:0;}
 
 #content .subscribe-hoa table tr,
-#content .subscribe-hoa table td { margin:0;padding:0;border:0; }
+#content .subscribe-hoa table td {margin:0;padding:0;border:0;}
 
 #content .subscribe-hoa table td {text-align:center;}
 
@@ -30,7 +31,7 @@
 
 #content .subscribe-hoa label {color:#333;}
 
-#content .subscribe-error { color:#d33;font-weight:bold;}
+#content .subscribe-error {color:#d33;font-weight:bold;}
 #content .subscribe-email {color:#468;}
 #content .feedback-result {font-weight:bold;}
 .subscribe-feedback {font-family: arial, sans-serif;}

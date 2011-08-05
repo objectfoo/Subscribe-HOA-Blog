@@ -72,29 +72,34 @@ class ShortCode_SHB {
 
     // render subscription form
     function render_subcribe_form( $vars ) {
-        $opts = $this->admin->getOptions();
-        $htm  = '<div class="subscribe-hoa">' . "\n";
-        $htm .= '<div class="hd">' . "\n";
-        $htm .= sprintf('<p>%s Announcement List Subscription</p>', get_bloginfo('name')) . "\n";
-        $htm .= '</div>' . "\n";
-        $htm .= '<form method="post" action="http://scripts.dreamhost.com/add_list.cgi">' . "\n";
-        $htm .= sprintf('<input type="hidden" name="list" value="%s" id="list" />', $opts[SHB_LIST_KEY]) . "\n";
-        $htm .= sprintf('<input type="hidden" name="domain" value="%s" id="domain" />', $opts[SHB_DOMAIN_KEY]) . "\n";
-        $htm .= sprintf('<input type="hidden" name="url" value="%s" id="url" />', get_permalink() . '/?dh_response_page=subscribed') . "\n";
-        $htm .= sprintf('<input type="hidden" name="unsuburl" value="%s" id="unsuburl" />', get_permalink() . '/?dh_response_page=unsubscribed') . "\n";
-        $htm .= sprintf('<input type="hidden" name="alreadyonurl" value="%s" id="alreadyonurl" />', get_permalink() . '/?dh_response_page=already_subscribed') . "\n";
-        $htm .= sprintf('<input type="hidden" name="notonurl" value="%s" id="notonurl" />', get_permalink() . '/?dh_response_page=not_subscribed') . "\n";
-        $htm .= sprintf('<input type="hidden" name="invalidurl" value="%s" id="invalidurl" />', get_permalink() . '/?dh_response_page=invalid_email') . "\n";
-        $htm .= sprintf('<input type="hidden" name="emailconfirmurl" value="%s" id="emailconfirmurl" />', get_permalink() . '/?dh_response_page=confirm') . "\n";
-        $htm .= '<table border="0" cellspacing="0" cellpadding="0">' . "\n";
-        $htm .= '<tr>' . "\n";
-        $htm .= '<td class="left"><label for="email">E-mail:</label> <input type="text" name="email"id="email" /></td>' . "\n";
-        $htm .= '<td><input type="submit" name="submit" value="Subscribe" id="submit" /></td>' . "\n";
-        $htm .= '<td><input type="submit" name="unsub" value="Unsubscribe" id="unsub"></td>' . "\n";
-        $htm .= '</tr>' . "\n";
-        $htm .= '</table>' . "\n";
-        $htm .= '</form>' . "\n";
-        $htm .= '</div>' . "\n";
+        if( is_user_logged_in() ) {
+            $opts = $this->admin->getOptions();
+            $htm  = '<div class="subscribe-hoa">' . "\n";
+            $htm .= '<div class="hd">' . "\n";
+            $htm .= sprintf('<p>%s Announcement List Subscription</p>', get_bloginfo('name')) . "\n";
+            $htm .= '</div>' . "\n";
+            $htm .= '<form method="post" action="http://scripts.dreamhost.com/add_list.cgi">' . "\n";
+            $htm .= sprintf('<input type="hidden" name="list" value="%s" id="list" />', $opts[SHB_LIST_KEY]) . "\n";
+            $htm .= sprintf('<input type="hidden" name="domain" value="%s" id="domain" />', $opts[SHB_DOMAIN_KEY]) . "\n";
+            $htm .= sprintf('<input type="hidden" name="url" value="%s" id="url" />', get_permalink() . '/?dh_response_page=subscribed') . "\n";
+            $htm .= sprintf('<input type="hidden" name="unsuburl" value="%s" id="unsuburl" />', get_permalink() . '/?dh_response_page=unsubscribed') . "\n";
+            $htm .= sprintf('<input type="hidden" name="alreadyonurl" value="%s" id="alreadyonurl" />', get_permalink() . '/?dh_response_page=already_subscribed') . "\n";
+            $htm .= sprintf('<input type="hidden" name="notonurl" value="%s" id="notonurl" />', get_permalink() . '/?dh_response_page=not_subscribed') . "\n";
+            $htm .= sprintf('<input type="hidden" name="invalidurl" value="%s" id="invalidurl" />', get_permalink() . '/?dh_response_page=invalid_email') . "\n";
+            $htm .= sprintf('<input type="hidden" name="emailconfirmurl" value="%s" id="emailconfirmurl" />', get_permalink() . '/?dh_response_page=confirm') . "\n";
+            $htm .= '<table border="0" cellspacing="0" cellpadding="0">' . "\n";
+            $htm .= '<tr>' . "\n";
+            $htm .= '<td class="left"><label for="email">E-mail:</label> <input type="text" name="email"id="email" /></td>' . "\n";
+            $htm .= '<td><input type="submit" name="submit" value="Subscribe" id="submit" /></td>' . "\n";
+            $htm .= '<td><input type="submit" name="unsub" value="Unsubscribe" id="unsub"></td>' . "\n";
+            $htm .= '</tr>' . "\n";
+            $htm .= '</table>' . "\n";
+            $htm .= '</form>' . "\n";
+            $htm .= '</div>' . "\n";
+        }
+        else {
+            $htm = '<div class="subscribe-hoa"><p class="hd please-log-in">Please log in to subscribe/unsubscribe to announcements.</p></div>';
+        }
 
         return $htm;
     }
