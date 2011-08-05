@@ -8,6 +8,8 @@
  * License: GPLv2
 */
 
+global $admin_shb, $shortCode_shb, $feedback_shb;
+
 // paths
 define( 'SHB_FILE', __FILE__ );
 define( 'SHB_DIR', plugin_dir_url( SHB_FILE ) );
@@ -62,6 +64,7 @@ if( class_exists( 'Announce_SHB') ) {
 // Activation hook
 register_activation_hook( SHB_FILE, 'install_plugin_shb' );
 function install_plugin_shb() {
+	global $admin_shb, $feedback_shb;
     $admin_shb->install();
     $feedback_shb->init();
     // $feedback_shb->add_rules();
