@@ -14,4 +14,7 @@
 * <del>send message to dreamhost announce-list server when a post is published for the first time</del>
 
 **todo**
-Need to make a template for the root announce-list page that will display the sub/unsub form, it can also display virtual pages for feedback. So nix the shortcode.
+
+Abort previous nix the shortcode plan, new plan: do it all in a shortcode, nix Feedbackpages / wp_redirect stuff.
+
+Next up finish `ShortCode_SHB::replace_shortcode` method, it needs render functions for all the different response types.
