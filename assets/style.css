@@ -30,6 +30,7 @@
 
 #content .subscribe-hoa label {color:#333;}
 
-#content .subscribe-error { color:#e33;font-weight:bold;}
-#content .subscribe-email {color:#33e;}
+#content .subscribe-error { color:#d33;font-weight:bold;}
+#content .subscribe-email {color:#468;}
 #content .feedback-result {font-weight:bold;}
+.subscribe-feedback {font-family: arial, sans-serif;}

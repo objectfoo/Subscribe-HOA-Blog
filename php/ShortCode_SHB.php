@@ -88,7 +88,7 @@ class ShortCode_SHB {
         $htm .= sprintf('<input type="hidden" name="emailconfirmurl" value="%s" id="emailconfirmurl" />', get_permalink() . '/?dh_response_page=confirm') . "\n";
         $htm .= '<table border="0" cellspacing="0" cellpadding="0">' . "\n";
         $htm .= '<tr>' . "\n";
-        $htm .= sprintf( '<td class="left"><label for="email">E-mail:</label> <input type="text" name="email" value="%s" id="email" /></td>', $vars['address'] ) . "\n";
+        $htm .= '<td class="left"><label for="email">E-mail:</label> <input type="text" name="email"id="email" /></td>' . "\n";
         $htm .= '<td><input type="submit" name="submit" value="Subscribe" id="submit" /></td>' . "\n";
         $htm .= '<td><input type="submit" name="unsub" value="Unsubscribe" id="unsub"></td>' . "\n";
         $htm .= '</tr>' . "\n";
@@ -161,32 +161,32 @@ class ShortCode_SHB {
     }
 
     function success_subscribed( $email_addr ) {
-        return "<span class=\"subscribe-email\">{$email_addr}</span> been added to the announcement list.";
+        return "<span class=\"subscribe-email\">&lt;{$email_addr}&gt;</span> been added to the announcement list.";
         return 'success subscribed';
     }
 
     function success_unsubscribed( $email_addr ) {
-        return "<span class=\"subscribe-email\">{$email_addr}</span> has been removed from the announcement list.";
+        return "<span class=\"subscribe-email\">&lt;{$email_addr}&gt;</span> has been removed from the announcement list.";
         return 'success_unsubscribed';
     }
 
     function success_mailed_link( $email_addr ) {
-        return "A confirmation email has been sent to <span class=\"subscribe-email\">{$email_addr}</span>.";
+        return "A confirmation email has been sent to <span class=\"subscribe-email\">&lt;{$email_addr}&gt;</span>.";
         return 'success_mailed_link';
     }
 
     function error_already_subscribed( $email_addr ) {
-        return "<span class=\"subscribe-email\">{$email_addr}</span> is already on the announcement list.";
+        return "<span class=\"subscribe-email\">&lt;{$email_addr}&gt;</span> is already on the announcement list.";
         return 'error_already_subscribed';
     }
 
     function error_not_in_list( $email_addr ) {
-        return "<span class=\"subscribe-email\">{$email_addr}</span> is not subscribed to the announcement list.";
+        return "<span class=\"subscribe-email\">&lt;{$email_addr}&gt;</span> is not subscribed to the announcement list.";
         return 'error_not_in_list';
     }
 
     function invalid_email( $email_addr ) {
-        return "<span class=\"subscribe-email\">{$email_addr}</span> is an invalid email address.";
+        return "<span class=\"subscribe-email\">&lt;{$email_addr}&gt;</span> is an invalid email address.";
         return 'invalid_email';
     }
     
