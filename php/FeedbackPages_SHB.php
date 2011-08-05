@@ -6,17 +6,17 @@ class FeedbackPages_SHB {
 	}
 	
     function init() {
-        add_action( 'init' 'add_rules' );
-        add_filter( 'query_vars', 'add_query_vars' );
+        add_action( 'init', array( $this, 'add_rules' ) );
+        add_filter( 'query_vars', array( $this, 'add_query_vars' ) );
 
         // add_action( 'init', array($this, 'print_r_wp_rewrite') );
     }
 
-    add_rules() {
+    function add_rules() {
         // add rewrite rules
     }
     
-    add_query_vars() {
+    function add_query_vars() {
         // add query vars so wp recognizes it
     }
 
