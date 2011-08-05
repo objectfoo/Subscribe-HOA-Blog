@@ -100,11 +100,11 @@ class ShortCode_SHB {
                 <input type="hidden" name="list" value="<?php echo $opts[SHB_LIST_KEY] ?>" id="list" />
                 <input type="hidden" name="domain" value="<?php echo $opts[SHB_DOMAIN_KEY] ?>" id="domain" />
 
-                <input type="hidden" name="url" value="<?php echo get_permalink() .'/?dh_response_page=subscribed' ?>" /> 
-                <input type="hidden" name="unsuburl" value="<?php echo get_permalink() .'/?dh_response_page=unsubscribed' ?>" /> 
+                <input type="hidden" name="url" value="<?php          echo get_permalink() .'/?dh_response_page=subscribed' ?>" /> 
+                <input type="hidden" name="unsuburl" value="<?php     echo get_permalink() .'/?dh_response_page=unsubscribed' ?>" /> 
                 <input type="hidden" name="alreadyonurl" value="<?php echo get_permalink() .'/?dh_response_page=already_subscribed' ?>" /> 
-                <input type="hidden" name="notonurl" value="<?php echo get_permalink() .'/?dh_response_page=not_subscribed' ?>" /> 
-                <input type="hidden" name="invalidurl" value="<?php echo get_permalink() .'/?dh_response_page=invalid_email' ?>" /> 
+                <input type="hidden" name="notonurl" value="<?php     echo get_permalink() .'/?dh_response_page=not_subscribed' ?>" /> 
+                <input type="hidden" name="invalidurl" value="<?php   echo get_permalink() .'/?dh_response_page=invalid_email' ?>" /> 
                 <?php
                 /*
                 don't think I need this one, it's set via the webpanel

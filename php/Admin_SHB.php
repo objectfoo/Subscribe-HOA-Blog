@@ -68,10 +68,10 @@ class Admin_SHB {
         register_setting( SHB_OPTIONS_KEY, SHB_OPTIONS_KEY, Array( $this, 'validate') );
         add_settings_section( 'main', 'Settings', array($this, 'print_section_text'), SHB_FILE );
         
-        add_settings_field( SHB_API_KEY, 'API Key', array($this, 'print_api_key_input'), SHB_FILE, 'main' );
-        add_settings_field( SHB_LIST_KEY, 'List Name', array($this, 'print_list_name_input'), SHB_FILE, 'main' );
-        add_settings_field( SHB_UUID_KEY, 'UUID Prefix', array($this, 'print_UUID_prefix_input'), SHB_FILE, 'main' );
-        add_settings_field( SHB_ANNOUNCE_KEY, 'Send Announcements', array($this, 'print_announce_key_input'), SHB_FILE, 'main' );
+        add_settings_field( SHB_API_KEY,     'API Key',            array($this, 'print_api_key_input'),     SHB_FILE, 'main' );
+        add_settings_field( SHB_LIST_KEY,    'List Name',          array($this, 'print_list_name_input'),   SHB_FILE, 'main' );
+        add_settings_field( SHB_UUID_KEY,    'UUID Prefix',        array($this, 'print_UUID_prefix_input'), SHB_FILE, 'main' );
+        add_settings_field( SHB_ANNOUNCE_KEY,'Send Announcements', array($this, 'print_announce_key_input'),SHB_FILE, 'main' );
         
     }
 
@@ -136,7 +136,6 @@ class Admin_SHB {
                         '</blockquote>'
                 );
             }
-            
         }
         return $valid;
     }
@@ -175,8 +174,8 @@ class Admin_SHB {
             $opts[SHB_UUID_KEY]
         );
         echo '<span class="description">Alphanumeric</span>';
-        
     }
+
     function print_announce_key_input() {
         $opts = get_option( SHB_OPTIONS_KEY );
         if (!isset($opts[SHB_ANNOUNCE_KEY])) {
@@ -187,7 +186,6 @@ class Admin_SHB {
             SHB_OPTIONS_KEY,
             checked( 1, $opts[SHB_ANNOUNCE_KEY], false )
         );
-        
     }
 }
 
