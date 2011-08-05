@@ -31,8 +31,6 @@ if( !class_exists( 'Admin_SHB' ) )
 if( class_exists( 'Admin_SHB' ) ) {
 	$admin_shb = new Admin_SHB();
 	$admin_shb->init();
-
-	register_activation_hook( SHB_FILE, array( $admin_shb, 'install' ) );
 }
 
 // Shortcode
@@ -45,7 +43,14 @@ if( class_exists( 'ShortCode_SHB' ) ) {
 }
 
 // Feedback
+if( !class_exists( 'FeedbackPages_SHB'))
+    require_once dirname( SHB_FILE ) . '/php/FeedbackPages_SHB.php';
 
+if( class_exists( 'FeedbackPages_SHB' ) ) {
+    $feedback_shb = new FeedbackPages_SHB( $admin_shb );
+    $feedback_shb->init();
+}
+    
 // Announcement
 if( !class_exists( 'Announce_SHB') )
 	require_once dirname( SHB_FILE ) . '/php/Announce_SHB.php';
@@ -53,5 +58,21 @@ if( !class_exists( 'Announce_SHB') )
 if( class_exists( 'Announce_SHB') ) {
 	$announce_shb = new Announce_SHB( $admin_shb );
 }
+
+// Activation hook
+register_activation_hook( SHB_FILE, 'install_plugin_shb' );
+function install_plugin_shb() {
+    $admin_shb->install();
+    $feedback_shb->init();
+    // $feedback_shb->add_rules();
+    // flush_rewrite_rules();
+}
+
+// Deactivation hook
+register_deactivation_hook( SHB_FILE, 'deactivate_plugin');
+function deactivate_plugin() {
+    flush_rewrite_rules();
+}
+
 
 ?>
