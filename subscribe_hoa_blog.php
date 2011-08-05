@@ -44,15 +44,6 @@ if( class_exists( 'ShortCode_SHB' ) ) {
 //    $shortCode_shb->init();
 }
 
-// Feedback
-if( !class_exists( 'FeedbackPages_SHB'))
-    // require_once dirname( SHB_FILE ) . '/php/FeedbackPages_SHB.php';
-
-if( class_exists( 'FeedbackPages_SHB' ) ) {
-    $feedback_shb = new FeedbackPages_SHB( $admin_shb );
-    $feedback_shb->init();
-}
-    
 // Announcement
 if( !class_exists( 'Announce_SHB') )
     require_once dirname( SHB_FILE ) . '/php/Announce_SHB.php';
