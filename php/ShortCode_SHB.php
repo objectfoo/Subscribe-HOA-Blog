@@ -16,6 +16,7 @@ class ShortCode_SHB {
         // page (set in the webpanel)
         $opts = $this->admin->getOptions();
         if( $opts[SHB_ANNOUNCE_KEY] ) {
+            $resp = '';
             $dh_response_page = get_query_var( 'dh_response_page' );
             $response_data = array(
               'address' => get_query_var( 'address' ),
@@ -25,10 +26,12 @@ class ShortCode_SHB {
             );
 
              if( !empty($dh_response_page) ) {
-                 $this->render_response_message( $response_data );
+                 $resp .= $this->render_response_message( $response_data );
              } 
-             $this->render_subcribe_form( $response_data );             
+             $resp .= $this->render_subcribe_form( $response_data );             
         }
+
+        return $resp;
     }
     
     // enqueue scripts and style to be included on the page
@@ -70,33 +73,30 @@ class ShortCode_SHB {
     // render subscription form
     function render_subcribe_form( $vars ) {
         $opts = $this->admin->getOptions();
-        ?>
-        <div class="subscribe-hoa">
-            <div class="hd">
-                <p><?php echo bloginfo( 'name' ) ?> Announcement List Subscription</p>
-            </div>
-        
-            <form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
-                <input type="hidden" name="list" value="<?php echo $opts[SHB_LIST_KEY] ?>" id="list" />
-                <input type="hidden" name="domain" value="<?php echo $opts[SHB_DOMAIN_KEY] ?>" id="domain" />
+        $htm  = '<div class="subscribe-hoa">' . "\n";
+        $htm .= '<div class="hd">' . "\n";
+        $htm .= sprintf('<p>%s Announcement List Subscription</p>', get_bloginfo('name')) . "\n";
+        $htm .= '</div>' . "\n";
+        $htm .= '<form method="post" action="http://scripts.dreamhost.com/add_list.cgi">' . "\n";
+        $htm .= sprintf('<input type="hidden" name="list" value="%s" id="list" />', $opts[SHB_LIST_KEY]) . "\n";
+        $htm .= sprintf('<input type="hidden" name="domain" value="%s" id="domain" />', $opts[SHB_DOMAIN_KEY]) . "\n";
+        $htm .= sprintf('<input type="hidden" name="url" value="%s" id="url" />', get_permalink() . '/?dh_response_page=subscribed') . "\n";
+        $htm .= sprintf('<input type="hidden" name="unsuburl" value="%s" id="unsuburl" />', get_permalink() . '/?dh_response_page=unsubscribed') . "\n";
+        $htm .= sprintf('<input type="hidden" name="alreadyonurl" value="%s" id="alreadyonurl" />', get_permalink() . '/?dh_response_page=already_subscribed') . "\n";
+        $htm .= sprintf('<input type="hidden" name="notonurl" value="%s" id="notonurl" />', get_permalink() . '/?dh_response_page=not_subscribed') . "\n";
+        $htm .= sprintf('<input type="hidden" name="invalidurl" value="%s" id="invalidurl" />', get_permalink() . '/?dh_response_page=invalid_email') . "\n";
+        $htm .= sprintf('<input type="hidden" name="emailconfirmurl" value="%s" id="emailconfirmurl" />', get_permalink() . '/?dh_response_page=confirm') . "\n";
+        $htm .= '<table border="0" cellspacing="0" cellpadding="0">' . "\n";
+        $htm .= '<tr>' . "\n";
+        $htm .= sprintf( '<td class="left"><label for="email">E-mail:</label> <input type="text" name="email" value="%s" id="email" /></td>', $vars['address'] ) . "\n";
+        $htm .= '<td><input type="submit" name="submit" value="Subscribe" id="submit" /></td>' . "\n";
+        $htm .= '<td><input type="submit" name="unsub" value="Unsubscribe" id="unsub"></td>' . "\n";
+        $htm .= '</tr>' . "\n";
+        $htm .= '</table>' . "\n";
+        $htm .= '</form>' . "\n";
+        $htm .= '</div>' . "\n";
 
-                <input type="hidden" name="url" value="<?php          echo get_permalink() .'/?dh_response_page=subscribed' ?>" /> 
-                <input type="hidden" name="unsuburl" value="<?php     echo get_permalink() .'/?dh_response_page=unsubscribed' ?>" /> 
-                <input type="hidden" name="alreadyonurl" value="<?php echo get_permalink() .'/?dh_response_page=already_subscribed' ?>" /> 
-                <input type="hidden" name="notonurl" value="<?php     echo get_permalink() .'/?dh_response_page=not_subscribed' ?>" /> 
-                <input type="hidden" name="invalidurl" value="<?php   echo get_permalink() .'/?dh_response_page=invalid_email' ?>" /> 
-                <input type="hidden" name="emailconfirmurl" value="<?php echo get_permalink() .'/?dh_response_page=confirm' ?>" />
-
-                <table border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td class="left"><label for="email">E-mail:</label> <input type="text" name="email" value="<?php echo $vars['address'] ?>" id="email" /></td>
-                        <td><input type="submit" name="submit" value="Subscribe" id="submit" /></td>
-                        <td><input type="submit" name="unsub" value="Unsubscribe" id="unsub"></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <?php
+        return $htm;
     }
     
     // render response message
@@ -123,14 +123,12 @@ class ShortCode_SHB {
         }
 
         $msg_body = $this->get_message_body( $vars, $resp_codes[$vars['code']] );
-
-        ?>
         
-        <div class="subscribe-feedback">
-            <span class="<?php echo $msg_class ?> feedback-result"><?php echo $msg_title ?></span><br />
-        <?php echo $msg_body ?>
-        </div>
-        <?php
+        $htm  = '<div class="subscribe-feedback">';
+        $htm .= sprintf('<span class="%s feedback-result">%s</span><br />', $msg_class, $msg_title );
+        $htm .= $msg_body;
+        $htm .= '</div>';
+        return $htm;
     }
     
     function get_message_title( $type ) {
