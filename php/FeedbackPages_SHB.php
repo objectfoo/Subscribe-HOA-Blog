@@ -1,10 +1,10 @@
 <?php
 class FeedbackPages_SHB {
 
-	function __construct( $admin ) {
-		$this->admin = $admin;
-	}
-	
+    function __construct( $admin ) {
+        $this->admin = $admin;
+    }
+    
     function init() {
         add_action( 'init', array( $this, 'add_rules_shb' ) );
         add_filter( 'query_vars', array( $this, 'add_query_vars' ) );
@@ -18,10 +18,10 @@ class FeedbackPages_SHB {
     
     function add_query_vars( $vars ) {
         // add query vars so wp recognizes it
-		$vars[] = 'address';
-		$vars[] = 'name';
-		$vars[] = 'code';
-		return $vars;
+        $vars[] = 'address';
+        $vars[] = 'name';
+        $vars[] = 'code';
+        return $vars;
     }
 
     function print_r_wp_rewrite() {

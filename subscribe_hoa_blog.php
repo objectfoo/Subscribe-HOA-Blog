@@ -28,20 +28,20 @@ define( 'SHB_MAIL_TYPE',    'text' );          // text or html
 
 // Administration
 if( !class_exists( 'Admin_SHB' ) )
-	require_once dirname( SHB_FILE ) . '/php/Admin_SHB.php';
+    require_once dirname( SHB_FILE ) . '/php/Admin_SHB.php';
 
 if( class_exists( 'Admin_SHB' ) ) {
-	$admin_shb = new Admin_SHB();
-	$admin_shb->init();
+    $admin_shb = new Admin_SHB();
+    $admin_shb->init();
 }
 
 // Shortcode
 if( !class_exists( 'ShortCode_SHB' ) )
-	require_once dirname( SHB_FILE ) . '/php/ShortCode_SHB.php';
+    require_once dirname( SHB_FILE ) . '/php/ShortCode_SHB.php';
 
 if( class_exists( 'ShortCode_SHB' ) ) {
-	$shortCode_shb = new ShortCode_SHB( $admin_shb );
-	$shortCode_shb->init();
+    $shortCode_shb = new ShortCode_SHB( $admin_shb );
+    $shortCode_shb->init();
 }
 
 // Feedback
@@ -55,16 +55,16 @@ if( class_exists( 'FeedbackPages_SHB' ) ) {
     
 // Announcement
 if( !class_exists( 'Announce_SHB') )
-	require_once dirname( SHB_FILE ) . '/php/Announce_SHB.php';
+    require_once dirname( SHB_FILE ) . '/php/Announce_SHB.php';
 
 if( class_exists( 'Announce_SHB') ) {
-	$announce_shb = new Announce_SHB( $admin_shb );
+    $announce_shb = new Announce_SHB( $admin_shb );
 }
 
 // Activation hook
 register_activation_hook( SHB_FILE, 'install_plugin_shb' );
 function install_plugin_shb() {
-	global $admin_shb, $feedback_shb;
+    global $admin_shb, $feedback_shb;
     $admin_shb->install();
     // $feedback_shb->init();
 
