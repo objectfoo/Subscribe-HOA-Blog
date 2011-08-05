@@ -13,3 +13,5 @@
     * Confirmation URL
 * <del>send message to dreamhost announce-list server when a post is published for the first time</del>
 
+**todo**
+Need to make a template for the root announce-list page that will display the sub/unsub form, it can also display virtual pages for feedback. So nix the shortcode.
