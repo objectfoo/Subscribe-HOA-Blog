@@ -6,17 +6,15 @@
     * <del>UUID Prefix</del>
     * <del>Send Announcements</del>
 * <del>add a shortcode to print a sub/unsub form for dreamhost announce-list</del>
-* respond to feedback queries by printing virtual pages for
-    * subscribed: confirmation email has been sent
-    * already_subscribed: goodbye page
-    * already_on: you are already on the list
-    * not_subscribed: you are not on the list
-    * invalid_email: malformed email address
-    * welcome: Email confirm (they just clicked the confirm link in their email) **might be wrong**
+* <del>respond to feedback queries by printing virtual pages for</del>
+    * <del>subscribed: you have been added to the list</del>
+    * <del>unsubscribed: you have been unsubscribed</del>
+    * <del>already_subscribed: You are already on the list</del>
+    * <del>not_subscribed: you are not on the list</del>
+    * <del>invalid_email: malformed email address</del>
+    * <del>confirm: you have been sent a confirmation email</del>
 * <del>send message to dreamhost announce-list server when a post is published for the first time</del>
 
-**todo**
+## Todo
 
-Abort previous nix the shortcode plan, new plan: do it all in a shortcode, nix Feedbackpages / wp_redirect stuff.
-
-Next up: finish `ShortCode_SHB::replace_shortcode` method, it needs to call render methods for all the different response types.
+deploy

@@ -25,7 +25,7 @@ class ShortCode_SHB {
             );
 
              if( !empty($dh_response_page) ) {
-                 $this->render_response_message( $response_data );                 
+                 $this->render_response_message( $response_data );
              } 
              $this->render_subcribe_form( $response_data );             
         }
