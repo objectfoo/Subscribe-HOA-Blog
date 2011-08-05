@@ -19,4 +19,4 @@
 
 Abort previous nix the shortcode plan, new plan: do it all in a shortcode, nix Feedbackpages / wp_redirect stuff.
 
-Next up: finish `ShortCode_SHB::replace_shortcode` method, it needs render methods for all the different response types.
+Next up: finish `ShortCode_SHB::replace_shortcode` method, it needs to call render methods for all the different response types.
