@@ -5,7 +5,6 @@ class Announce_SHB {
 
     function __construct( $admin ) {
         $this->admin = $admin;
-        
         add_action( 'transition_post_status', array( $this, 'announce_post'), 10, 3 );
     }
 

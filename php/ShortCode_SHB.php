@@ -4,17 +4,10 @@ class ShortCode_SHB {
     
     function __construct( $admin ) {
         $this->admin = $admin;
-    }
-    
-    function init() {
+
         add_shortcode( 'announcelist',  array( $this, 'replace_shortcode') );
         add_action( 'init',             array( $this, 'enqueue_assets' ) );
         add_filter( 'query_vars',       array( $this, 'add_query_vars' ) );
-
-        
-        // can't dequeue stylesheets cause they don't print in the footer :(
-        // add_action( 'the_post',                    array( $this, 'post_has_shortcode' ) );
-        // add_action( 'wp_print_footer_scripts',    array( $this, 'deregister_assets_check'), 1 );
     }
     
     function replace_shortcode() {
@@ -26,21 +19,19 @@ class ShortCode_SHB {
             $dh_response_page = get_query_var( 'dh_response_page' );
             $response_data = array(
               'address' => get_query_var( 'address' ),
-              'name' => get_query_var( 'name' ),
-              'code' => get_query_var( 'code' ),
-              'type' => $dh_response_page
+              'name'    => get_query_var( 'name' ),
+              'code'    => get_query_var( 'code' ),
+              'type'    => $dh_response_page
             );
 
-            // $address = get_query_var( 'address' );
-            // $name = get_query_var( 'name' );
-            // $code = get_query_var( 'code' );
-
              if( empty($dh_response_page) ) {
-                 // this is not a response page from dreamhost
+                 // not a dreamhost response
                  $this->render_subcribe_form();
              } else {
+                 // dreamhost response page
                 $this->render_placeholder_response( $response_data );
-                 // this is a response page from dreamhost
+
+                
                  // subscribed: confirmation email has been sent
                  // already_subscribed: goodbye page
                  // already_on: you are already on the list

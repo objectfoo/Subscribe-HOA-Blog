@@ -1,14 +1,12 @@
 <?php
 class Admin_SHB {
 
-    function __construct() {}
-
-    function init() {
+    function __construct() {
         $this->getOptions();
         add_action( 'admin_menu', array( $this, 'add_settings_menu' ) );
         add_action( 'admin_init', array( $this, 'setup_options' ) );
     }
-    
+
     function install() {
         $this->getOptions();
     }

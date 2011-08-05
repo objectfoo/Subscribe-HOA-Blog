@@ -32,7 +32,7 @@ if( !class_exists( 'Admin_SHB' ) )
 
 if( class_exists( 'Admin_SHB' ) ) {
     $admin_shb = new Admin_SHB();
-    $admin_shb->init();
+//    $admin_shb->init();
 }
 
 // Shortcode
@@ -41,7 +41,7 @@ if( !class_exists( 'ShortCode_SHB' ) )
 
 if( class_exists( 'ShortCode_SHB' ) ) {
     $shortCode_shb = new ShortCode_SHB( $admin_shb );
-    $shortCode_shb->init();
+//    $shortCode_shb->init();
 }
 
 // Feedback
@@ -64,19 +64,13 @@ if( class_exists( 'Announce_SHB') ) {
 // Activation hook
 register_activation_hook( SHB_FILE, 'install_plugin_shb' );
 function install_plugin_shb() {
-    global $admin_shb, $feedback_shb;
+    global $admin_shb;
     $admin_shb->install();
-    // $feedback_shb->init();
-
-    // $feedback_shb->add_rules();
-    // flush_rewrite_rules();
 }
 
 // Deactivation hook
 register_deactivation_hook( SHB_FILE, 'deactivate_plugin');
-function deactivate_plugin() {
-    // flush_rewrite_rules();
-}
+function deactivate_plugin() { }
 
 
 ?>
