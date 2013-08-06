@@ -1,8 +1,5 @@
 WP network plugin to subscribe to an HOA new post alerts mailing list, has admin section and shortcode for UI.
 
-
-## Settings
-
 * admin section
     * API key ( global )
     * List Name
